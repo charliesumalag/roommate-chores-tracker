@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
 
-const FormAddRoommate = () => {
+const FormAddRoommate = ({setRoommates}) => {
   const [image,setImage] = useState('https://i.pravatar.cc/48?u=499476');
   const [roommateName, setRoommateName] = useState('');
-  const [roommates, setRoommates] = useState([]);
+
+
 
 
   function handleSubmitAddRoommate(e) {
     e.preventDefault();
 
+    if (!roommateName) return;
+
     const id = crypto.randomUUID();
 
     const newRoommate = {
       id,
-      roommateName,
-      image: `${image} ?=${id}`,
+      roommateName: roommateName,
+      image: `${image}?u=${id}`,
       balance: 0,
     }
     setRoommates((prev) => [...prev, newRoommate]);

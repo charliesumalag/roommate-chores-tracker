@@ -15,7 +15,7 @@ const FormAddChore = () => {
         <form onSubmit={handleAddChoreSubmit} className='flex flex-col flex-1 gap-2'>
             <input type="text" className='border border-white text-gray-400 p-1 font-sans text-sm' placeholder='Chore' />
             <select name="" id="" className='border border-white text-gray-400 p-1 font-sans '>
-                {friendsStarter.map((friend) => <option className='text-black' value={friend.name}>{friend}</option>)}
+                {friendsStarter.map((friend, index) => <option key={index} className='text-black' value={friend.name}>{friend}</option>)}
                 {/* <option value="">Hello</option> */}
             </select>
             <button className='bg-[#183756] text-[#53d0d3] text-sm px-8 py-1 cursor-pointer hover:bg-[rgb(0,150,136)] mt-auto font-mono'>Add Chore</button>
