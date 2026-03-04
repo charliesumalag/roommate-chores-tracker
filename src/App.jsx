@@ -9,6 +9,8 @@ import WeeklySummary from './components/WeeklySummary';
 const App = () => {
   const [roommates, setRoommates] = useState([]);
   const [chores, setChores] = useState([]);
+  const choresDone = chores.length;
+console.log(choresDone);
 
 
   return (
@@ -19,7 +21,7 @@ const App = () => {
         <FormAddChore roommates={roommates} setChores={setChores} chores={chores} setRoommates={setRoommates}/>
         <RoommateBalances roommates={roommates} />
         <ChoreHistory chores={chores} />
-        <WeeklySummary />
+        <WeeklySummary choresDone={choresDone} roommates={roommates} />
       </div>
     </div>
   )

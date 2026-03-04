@@ -22,8 +22,6 @@ const RoommateBalances = ({roommates}) => {
               {roomate.balance}</p>
             </div>
           </li>)}
-
-
       </ul>
     </div>
   )
