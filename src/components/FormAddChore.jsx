@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 
-const FormAddChore = ({roommates,setChores, chores, setRoommates}) => {
+const FormAddChore = ({roommates,setChores, setRoommates}) => {
 
     const [choreName, setChoreName] = useState('');
     const [selectedRoommate, setSelectedRoommate] = useState('');
-
-    console.log(roommates);
-
-
 
     function handleAddChores(chore) {
         setChores((prev) => [...prev, chore]);
@@ -22,11 +18,11 @@ const FormAddChore = ({roommates,setChores, chores, setRoommates}) => {
         }
         handleAddChores(newChores);
         setRoommates((prevs) =>
-
             // prev is an [{},{}]
             // map it. then prev now is an object ={}
             prevs.map((prev) => prev.roommateName === newChores.completedBy ? {...prev, balance: prev.balance + 1} : {...prev, balance: prev.balance -1})
         );
+        setSelectedRoommate('');
 
     }
 

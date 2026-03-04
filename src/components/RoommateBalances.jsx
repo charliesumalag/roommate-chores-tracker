@@ -9,7 +9,7 @@ const RoommateBalances = ({roommates}) => {
       <hr className='pb-2' />
       <ul className='text-gray-400 text-sm flex flex-col gap-2'>
         {roommates.map((roomate) =>
-          <li key={roomate.id} className='flex justify-between'>
+          <li key={roomate.id} className='flex justify-between items-center'>
             <div className='flex items-center gap-2'>
               <img src={roomate.image} alt="" className='rounded-[3px] w-8' />
               <p>{roomate.roommateName}</p>

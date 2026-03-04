@@ -5,8 +5,6 @@ const FormAddRoommate = ({setRoommates}) => {
   const [roommateName, setRoommateName] = useState('');
 
 
-
-
   function handleSubmitAddRoommate(e) {
     e.preventDefault();
 
@@ -21,7 +19,8 @@ const FormAddRoommate = ({setRoommates}) => {
       balance: 0,
     }
     setRoommates((prev) => [...prev, newRoommate]);
-
+    setRoommateName('');
+    setImage('https://i.pravatar.cc/48?u=499476');
   }
 
   return (
