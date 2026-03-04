@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 
-const FormAddChore = ({roommates,setChores}) => {
+const FormAddChore = ({roommates,setChores, chores, setRoommates}) => {
 
     const [choreName, setChoreName] = useState('');
     const [selectedRoommate, setSelectedRoommate] = useState('');
+
+    console.log(roommates);
+
 
 
     function handleAddChores(chore) {
@@ -18,6 +21,13 @@ const FormAddChore = ({roommates,setChores}) => {
             completedBy: selectedRoommate,
         }
         handleAddChores(newChores);
+        setRoommates((prevs) =>
+
+            // prev is an [{},{}]
+            // map it. then prev now is an object ={}
+            prevs.map((prev) => prev.roommateName === newChores.completedBy ? {...prev, balance: prev.balance + 1} : prev)
+        );
+
     }
 
   return (
@@ -25,7 +35,7 @@ const FormAddChore = ({roommates,setChores}) => {
         <h3 className='text-lg pb-2'>Add Chore</h3>
         <form onSubmit={handleAddChoreSubmit} className='flex flex-col flex-1 gap-2'>
             <input type="text" className='border border-white text-gray-400 p-1 font-sans text-sm' placeholder='Chore' onChange={(e) => setChoreName(e.target.value) }/>
-            <select name="" id="" className='border border-white text-gray-400 p-1 font-sans text-sm' onChange={(e) => setSelectedRoommate(e.target.value)}>
+            <select name="" id="" value={selectedRoommate} className='border border-white text-gray-400 p-1 font-sans text-sm'  onChange={(e) => setSelectedRoommate(e.target.value)}>
                 <option value="" disabled>Select Roommate</option>
                 {roommates.map((roommate, index) => <option key={index} className='text-black' value={roommate.roommateName}>{roommate.roommateName}</option>)}
                 {/* <option value="">Hello</option> */}
