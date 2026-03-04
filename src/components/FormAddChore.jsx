@@ -25,7 +25,7 @@ const FormAddChore = ({roommates,setChores, chores, setRoommates}) => {
 
             // prev is an [{},{}]
             // map it. then prev now is an object ={}
-            prevs.map((prev) => prev.roommateName === newChores.completedBy ? {...prev, balance: prev.balance + 1} : prev)
+            prevs.map((prev) => prev.roommateName === newChores.completedBy ? {...prev, balance: prev.balance + 1} : {...prev, balance: prev.balance -1})
         );
 
     }

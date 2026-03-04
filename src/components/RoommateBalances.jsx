@@ -15,7 +15,11 @@ const RoommateBalances = ({roommates}) => {
               <p>{roomate.roommateName}</p>
             </div>
             <div>
-              <p className='text-red-300'>Balance: +{roomate.balance}</p>
+              <p className={roomate.balance >= 0 ? 'text-green-300' : 'text-red-400' }>Balance: {' '}
+                {
+                  roomate.balance > 0 ? '+' :  ''
+                }
+              {roomate.balance}</p>
             </div>
           </li>)}
 
